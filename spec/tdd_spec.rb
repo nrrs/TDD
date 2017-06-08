@@ -33,3 +33,23 @@ describe '#my_transpose' do
   ])
   end
 end
+
+describe '#stock_picker' do
+  let(:stocks) { [3, 4, 2, 5, 1] }
+
+  it 'should return a new array' do
+    expect(stock_picker(stocks).class).to eq(Array)
+  end
+
+  it 'should have only two items' do
+    expect(stock_picker(stocks).length).to eq(2)
+  end
+
+  it 'should return the most profitable days in chronological order' do
+    expect(stock_picker([3, 2, 5, 0, 6])).to eq([3, 4])
+  end
+
+  it 'should return the most profitable days in chronological order' do
+    expect(stock_picker(stocks)).to eq([2, 3])
+  end
+end

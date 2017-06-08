@@ -37,3 +37,23 @@ def my_transpose(arr)
 
   result
 end
+
+
+def stock_picker(stocks)
+  result = []
+  best_profit = 0
+
+  stocks.each_index do |buy|
+    stocks.each_index do |sell|
+      next if buy == sell
+
+      profit = stocks[sell] - stocks[buy]
+      if profit > best_profit && buy < sell
+        best_profit = profit
+        result = [buy, sell]
+      end
+    end
+  end
+
+  result
+end
